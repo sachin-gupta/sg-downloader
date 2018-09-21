@@ -20,7 +20,7 @@ wxpython=4.0.3
 pillow=5.2.0
 
 # The Python SQL Toolkit and Object Relational Mapper
-sqlalchemy=1.2.9
+sqlalchemy=1.2.11
 
 # Powerful HTML Parsing Library, Best One
 beautifulsoup4=4.6.3
