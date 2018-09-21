@@ -109,3 +109,61 @@ venv.bak/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# --- Based on Other Projects ---
+## SVN and GIT ignores
+.svn
+.git
+
+## OS & Temp ignores
+.DS_Store
+desktop.ini
+Thumbs.db
+
+## Temporary file ignores
+*.*~
+*.log
+*.cache
+*.*-cache
+log.txt
+
+## NPM & Bower ignores
+# -- No save locally downloded packges to server
+npm_modules/
+bower_components/
+# -- Keeping the lock file for version safety
+#package-lock.json
+
+## Bundler Packages ignore
+# -- No save locally downloded ruby packges to server
+vendor/ruby/         
+# -- No local bundle settings copied to server
+.bundle/    
+# -- Keeping the lock file for version safety
+#Gemfile.lock   
+
+## Yarn ignores
+yarn-cache/
+yarn-offline-pkgs/
+# -- No local yarn settings copied to server
+.yarnrc
+# -- Keeping clean file to reduce size of public/
+#.yarnclean
+# -- Keeping lock file for version safety
+#yarn.lock
+
+## Jekyll ignores
+# -- No copy of cache to server
+.sass-cache
+.jekyll-metadata
+.jekyll-cache
+# -- No copy of build output to server
+_site/
+public/
+
+# MS-Office ignores
+~$*.*
+
+# IDE ignores
+.vscode
+.idea
