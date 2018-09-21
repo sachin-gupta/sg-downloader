@@ -1,0 +1,54 @@
+# Commonly Required Modules You Can't Live Without
+# (Based: https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/)
+
+# HTTP Request Response Library
+# requests-auth &
+#   requests-oauthlib: OAuth Authentication Plugin
+# requests-aws: AWS Authentication Plugin
+# requests-cache: Caches responses with headers and cookies to sqlite database
+# requests_download: A convenient function to download to a file using requests.
+# requests-ftp: A simple FTP transport adapter
+requests==2.19.1
+
+# Web Scrapping Library
+scrapy=1.5.1
+
+# A gui toolkit for python like tkinter
+wxpython=4.0.3
+
+# A friendly fork of PIL (Python Imaging Library)
+pillow=5.2.0
+
+# The Python SQL Toolkit and Object Relational Mapper
+sqlalchemy=1.2.9
+
+# Powerful HTML Parsing Library, Best One
+beautifulsoup4=4.6.3
+
+# The most important tool for any network application developer
+twisted=18.7.0
+
+# NumPy is the fundamental package for scientific computing with Python
+numpy=1.15.1
+
+# SciPy is a library of algorithms and mathematical tools for python
+scipy=1.1.0
+
+# matplotlib is comprehensive 2D plotting library in python
+matplotlib=2.2.2
+
+# Some other plotting libraries (https://www.fusioncharts.com/blog/best-python-data-visualization-libraries/)
+#ggplot=0.9.4
+seaborn=0.9.0
+bokeh=0.13.0
+plotly=3.1.1
+
+# SymPy is a Python library for symbolic mathematics.
+sympy=1.3
+
+# Pandas is high-performance data structures and data analysis tools
+pandas=0.23.4
+
+# Nose is a testing framework in python
+nose=1.3.7
+
