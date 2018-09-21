@@ -1,0 +1,5 @@
+# conda environments:
+#
+base                     D:\WinAPPS\Anaconda
+RStudioDevEnv         *  D:\WinAPPS\Anaconda\envs\RStudioDevEnv
+
