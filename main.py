@@ -14,7 +14,8 @@ import sys, time, os, six, logging, traceback
 def HelloWorld():
     print('\r\nHello World')
 
-    raise Exception("Test Exception in Hello World")
+    # No more exceptions now
+    # raise Exception("Test Exception in Hello World")
 
 ''' ----------------- Main() ----------------- '''
 def main():
