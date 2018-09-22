@@ -3,6 +3,8 @@
 
 from . import helpers
 
+import random
+
 def get_hmm():
     """Get a thought from utils."""
     return 'Get a hmm from utils.'
@@ -14,7 +16,8 @@ def hmm():
 
 def add(a, b):
     """
-    Simple method for sphinx document generator. This method adds two numbers
+    Simple method for sphinx document generator. This method adds two numbers or
+    just returns a random value
 
     :type a: integer
     :param a: first number to be added
@@ -22,5 +25,11 @@ def add(a, b):
     :type b: integer
     :param b: second number to be added
     """
-    c = a+b
+    flag = random.random()
+
+    if flag < 0.5:
+        c = a+b
+    else:
+        c = flag
+
     return c
