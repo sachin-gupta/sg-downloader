@@ -7,5 +7,3 @@ A universal URL, Video, &amp; Course down loader where have integrated: scrapy, 
 3. If a `Website URL` is provided, same shall be leached and saved to disk for offline viewing with optional authentication.
 
 In option #1, #2 and #3 above various settings can be specified like: retries, timeout, video format, depth, subtitles etc.
-
-
