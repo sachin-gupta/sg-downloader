@@ -7,6 +7,8 @@
 import sys, time, os, six, logging, traceback
 
 ''' Project Imports (This Project Libraries) '''
+from modules.utils import utils
+from modules.login import login
 
 ''' External Imports (3rd Party Libraries) '''
 
@@ -14,13 +16,17 @@ import sys, time, os, six, logging, traceback
 def HelloWorld():
     print('\r\nHello World')
 
+    utils.hmm()
+
+    login.hmm()
+
     # No more exceptions now
     # raise Exception("Test Exception in Hello World")
 
 ''' ----------------- Main() ----------------- '''
 def main():
     """
-    This is the main function of the project
+    This is the main function of the PROJECT
     - It prints a message on console
     - It calls hello world which throws an exception
     """
@@ -44,4 +50,3 @@ if __name__ == '__main__':
         logging.error("\r\n^^^ Unhandled Exception ^^^ ")
         traceback.print_exc(limit=None, file=sys.stdout)
         raise
-    
