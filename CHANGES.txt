@@ -1,6 +1,11 @@
 - First draft for a project with following items
-  - A structure with package, sub-package and modules
+  - A structure with package, sub-package and
+    - package in sg-downloader and resides in sg-downloader/ folder
+    - sub-packages are login and utils folders
+    - login and util folder have 4 modules: login.py, utils.py and helpers.py
   - Test cases for each module in sub-package
+    - each sub-module (login and utils) had corresponding test sub-package folder
+    - eacg module (*.py file) inside a sub-packsge will have a (*_tests.py) file in test sub-package folder
   - Sample code to handle unhandles exceptions (__main__)
   - Module document generation system based on Sphinx
   - A web based UI to edit project settings based on Flask or eq.
