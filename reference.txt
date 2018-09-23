@@ -1,0 +1,8 @@
+#REFERRED URLs
+
+- [Sample Project](https://github.com/kennethreitz/samplemod): An architecture with sphinx document generation and basic setup.py.
+ Single one-level package named sample with modules inside.
+- https://github.com/kennethreitz/setup.py
+- [Writing Setup Script](https://docs.python.org/2/distutils/setupscript.html): Technical docs from Python designers, says about things
+to be used in the file. Details out all technical aspects of writing Setup.py
+- [Hitchhker's Guide to Packaging](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/quickstart.html):A guide to layout your project, writing setup.py, creating first release and register at PyPI, & uploading.
