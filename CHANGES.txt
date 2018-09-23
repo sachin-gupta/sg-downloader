@@ -1,0 +1,7 @@
+- First draft for a project with following items
+  - A structure with package, sub-package and modules
+  - Test cases for each module in sub-package
+  - Sample code to handle unhandles exceptions (__main__)
+  - Module document generation system based on Sphinx
+  - A web based UI to edit project settings based on Flask or eq.
+  - A setup script to generate deployable source or dist package
