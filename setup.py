@@ -34,6 +34,19 @@ sub-releases. These are “a1,a2,…,aN” (for alpha releases, where functional
 
 - Classifier: Needs to define development status, enviornment, intended audiance, license, operating system,
 programming language, etc.
+
+- Packaging:
+    - packages=find_packages(exclude=('tests', 'docs')) misses main.py but covers all modules in modules packages
+    including utils and login. In packages zip file top_level is detected as modules
+    - packages=[] misses main.py and misses all of packages and sub-packages in module folder.
+    - packages=[''] same as previous
+    - packages=['', 'modules'] includes main.py and module base without login and utils
+    - packages=['', 'modules', 'modules.login'] includes main.py and login but not utils
+    - packages=['.'] keeps main.py and misses all of packages and sub-packages in module folder.
+    - find_packages works best but it detects items under modules only so i've to move main.py as runner.py inside
+    modules package
+
+MANIFEST.in is able to inject extra files into the package
 """
 setup(name='sg-downloader',
     version='0.0.0dev1',
