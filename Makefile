@@ -3,12 +3,15 @@ init:
 
 docs:
     cd docs
-	make clean > ../log/Sphinx_Clean.log
-	make html > ../log/Sphinx_Html.log
+	rmdir /S /Q _build
+	make clean
+	make html
 	cd ..
-
-pack:
-    python setup.py sdist
 
 test:
 	nosetests tests
+
+pack:
+    rmdir /S /Q dist
+	rmdirs /S /Q sg_downloader.egg-info
+    python setup.py sdist
