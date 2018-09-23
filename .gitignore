@@ -164,6 +164,3 @@ public/
 # MS-Office ignores
 ~$*.*
 
-# IDE ignores
-.vscode
-.idea
