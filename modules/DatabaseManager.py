@@ -6,8 +6,8 @@ Created on 29 July 2012
 @author: Sachin Gupta
 """
 
-class DatabaseManager(object):
+class DatabaseManager(a,b,c):
     """
     Create and manage a new sqlite database. Dummy class for documentation
     """
-    a = 1+2
+    return (a+b+c)
