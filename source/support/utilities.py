@@ -6,17 +6,18 @@ Created on 23 Sep 2018
 @author: Sachin Gupta
 """
 
-from . import helpers
+''' Use helpers module from same (.) package. Renamed as mod_helpers for code safety.'''
+from . import helpers as mod_helpers
 
 import random
 
 def get_hmm():
-    """Get a thought from utils."""
-    return 'Get a hmm from utils.'
+    """Get a hmm() from sub-package utils."""
+    return 'Get a hmm() from sub-package utils.'
 
 def hmm():
-    """Utils Contemplation..."""
-    if helpers.get_answer():
+    """Hmm() Method Of Utilities Module"""
+    if mod_helpers.get_answer():
         print(get_hmm())
 
 def add(a, b):

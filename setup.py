@@ -35,8 +35,9 @@ sub-releases. These are “a1,a2,…,aN” (for alpha releases, where functional
 - Classifier: Needs to define development status, enviornment, intended audiance, license, operating system,
 programming language, etc.
 
+//TODO: Correct by testing
 - Packaging:
-    - packages=find_packages(exclude=('tests', 'docs')) misses main.py but covers all modules in modules packages
+    - packages=find_packages(exclude=('tests', 'docs')) misses main.py but covers all items in modules packages
     including utils and login. In packages zip file top_level is detected as modules
     - packages=[] misses main.py and misses all of packages and sub-packages in module folder.
     - packages=[''] same as previous

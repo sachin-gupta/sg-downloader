@@ -6,8 +6,10 @@ Created on 23 Sep 2018
 @author: Sachin Gupta
 """
 
+import random
+
 def get_answer():
-    """Get an answer from utils helpers."""
+    """Get an answer from sub-package support, module helpers."""
     return True
 
 

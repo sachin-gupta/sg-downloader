@@ -7,5 +7,5 @@ Created on 23 Sep 2018
 """
 
 def get_answer():
-    """Get an answer from login helpers."""
+    """Get an answer from sub-package security, module helpers."""
     return True

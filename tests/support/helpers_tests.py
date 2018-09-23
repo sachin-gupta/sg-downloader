@@ -1,26 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import modules.utils.helpers as tst_helpers
-
 import unittest
+
+from source.support import helpers
 
 class BasicTestSuite(unittest.TestCase):
     """Basic test cases for helpers."""
 
     def test_helpers_sub_method(self):
 
-        res = tst_helpers.sub(10, 7)
+        res = helpers.sub(10, 7)
 
-        assert True
-
-        '''
-        if res = 3:
+        if res==3:
+            print('~~~ Right Subtraction [10-7]: ' + str(res))
             assert True
         else:
-            print('Wrong Sum [2+3]: ' + str(res))
+            print('~~~ Wrong Subtraction [10-7]: ' + str(res))
             assert False
-        '''
 
 if __name__ == '__main__':
     unittest.main()

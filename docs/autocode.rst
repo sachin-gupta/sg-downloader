@@ -4,26 +4,31 @@ Code Documentation
 This is autocode.rst file used in index.rst and created so that autodoc module of sphinx can put
 auto-generated source code here.
 
-Util Module:
+Security Sub-Package:
 ====================================
 
-.. automodule:: modules.utils.utils
+.. automodule:: source.security.login
     :members:
 
-.. automodule:: modules.utils.helpers
+.. automodule:: source.security.helpers
     :members:
 
-Login Module:
+Support Sub-Package:
 ====================================
 
-.. automodule:: modules.login.login
+.. automodule:: source.support.utilities
     :members:
 
-.. automodule:: modules.login.helpers
+.. automodule:: source.support.helpers
     :members:
 
 DatabaseManager Module:
 ====================================
 
-.. automodule:: modules.DatabaseManager
+.. automodule:: source.DatabaseManager
+    :members:
+
+Runner Module:
+====================================
+.. automodule:: source.runner
     :members:

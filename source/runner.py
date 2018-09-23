@@ -6,24 +6,28 @@ Created on 29 July 2012
 @author: Sachin Gupta
 """
 
-''' This is the main file for the Project '''
+''' This is the main file for the Project. It contains unhandled exception catching and CTRL-C handling '''
 
 ''' Project Imports (Python Standard Libraries) '''
 import sys, time, os, six, logging, traceback
 
 ''' Project Imports (This Project Libraries) '''
-from modules.utils import utils
-from modules.login import login
+''' from same package (.) and sub-package (security) import login.py module. Renamed as mod_auth for code safety. '''
+from .security import login as mod_auth
+
+''' from same package (.) and sub-package (support) import utilities.py module. Renamed as mod_utils for code safety. '''
+from .support import utilities as mod_utils
 
 ''' External Imports (3rd Party Libraries) '''
 
 ''' ----------------- Main() ----------------- '''
 def HelloWorld():
-    print('\r\nHello World')
+    # Inline Function Execution
+    print('\r\nHello World - Runner.py (Main Package)')
 
-    utils.hmm()
-
-    login.hmm()
+    # Calling Sub-Package Methods
+    mod_utils.hmm()
+    mod_auth.hmm()
 
     # No more exceptions now
     # raise Exception("Test Exception in Hello World")
