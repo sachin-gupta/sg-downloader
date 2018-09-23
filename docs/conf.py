@@ -27,7 +27,7 @@ author = 'Sachin Gupta'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '0.0.0dev1'
 
 
 # -- General configuration ---------------------------------------------------
