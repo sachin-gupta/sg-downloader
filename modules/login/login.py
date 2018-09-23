@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+Created on 23 Sep 2018
+@author: Sachin Gupta
+"""
+
 from . import helpers
 
 def get_hmm():
