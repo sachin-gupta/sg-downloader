@@ -49,13 +49,5 @@ sympy=1.1.1
 # Pandas is high-performance data structures and data analysis tools
 pandas=0.23.4
 
-# Nose, PyTest, UniTest is a testing framework in python
-nose=1.3.7
-pytest=3.8.0
-unittest2=1.1.0
-
 # Sphinx is a document generation tool in python
 sphinx=1.7.9
-
-# Twine is required to upload files to PyPI
-twine=1.11.0
