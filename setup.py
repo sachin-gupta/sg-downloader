@@ -12,7 +12,9 @@ FEATURES:
 -
 """
 # Imports for Setup Project
-import io, os, sys
+import io
+import os
+import sys
 from shutil import rmtree
 from setuptools import setup, find_packages, Command
 
@@ -58,8 +60,8 @@ try:
     with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
         LONG_DESC = '\n' + f.read()
 except FileNotFoundError:
-        LONG_DESC = SHORT_DESC
-        pass
+    LONG_DESC = SHORT_DESC
+    pass
 
 # Import license and use it as license
 # - If LICENSE_OVERRIDE is none use LICENSE file in root path
@@ -69,9 +71,9 @@ if not LICENSE_OVERRIDE:
         with io.open(os.path.join(here, 'LICENSE'), encoding='utf-8') as f:
             LICENSE = '\n' + f.read()
     except FileNotFoundError:
-            print('^^^ Warning: License Not Found, Using AFGPLv3 For Package')
-            LICENSE = 'AFGPLv3'
-            pass
+        print('^^^ Warning: License Not Found, Using AFGPLv3 For Package')
+        LICENSE = 'AFGPLv3'
+        pass
 else:
     LICENSE = LICENSE_OVERRIDE
 
@@ -90,6 +92,8 @@ Class to implement publish command to be used as `python setup.py publish`
 - This will create a universal wheel (and sdist) and uploads your package to PyPi
   using Twine, without the need for an annoying setup.cfg file.
 """
+
+
 class PublishCommand(Command):
     description = 'Build universal wheel (and sdist) and upload to PyPi using Twine'
     user_options = []
@@ -119,11 +123,13 @@ class PublishCommand(Command):
             pass
 
         self.status('Building Application Helpfiles with Sphinx ...')
-        os.system('.\docs\make.bat clean')
-        os.system('.\docs\make.bat html')
+        os.system('./docs/make.bat clean')
+        os.system('./docs/make.bat html')
 
-        self.status('Building Source Pkg, Windows Pkg & Universal Wheel Distro ...')
-        os.system('{0} setup.py sdist bdist bdist_wheel --universal'.format(sys.executable))
+        self.status(
+            'Building Source Pkg, Windows Pkg & Universal Wheel Distro ...')
+        os.system(
+            '{0} setup.py sdist bdist bdist_wheel --universal'.format(sys.executable))
 
         self.status('Uploading the Package to PyPI via Twine ...')
         os.system('twine upload dist/*')
@@ -134,6 +140,8 @@ class PublishCommand(Command):
         os.system('git push --tags')
 
         sys.exit()
+
+
 """
 HERE IS PACKAGING CONFIGURATION
 
@@ -160,64 +168,64 @@ files shall be inside
 - MANIFEST.in is able to inject extra files into the source build of this project
 """
 setup(name=NAME,
-    version=about['__version__'],
-    license=LICENSE,
+      version=about['__version__'],
+      license=LICENSE,
 
-    # Description meta-data
-    description=SHORT_DESC,
-    long_description=LONG_DESC,
-    long_description_content_type='text/markdown',
-    include_package_data=False,
+      # Description meta-data
+      description=SHORT_DESC,
+      long_description=LONG_DESC,
+      long_description_content_type='text/markdown',
+      include_package_data=False,
 
-    # Author & source ref meta-data
-    author=AUTHOR,
-    author_email=EMAIL,
-    maintainer=AUTHOR,
-    maintainer_email=EMAIL,
-    url=URL_REPO,
-    download_url=URL_REPO,
+      # Author & source ref meta-data
+      author=AUTHOR,
+      author_email=EMAIL,
+      maintainer=AUTHOR,
+      maintainer_email=EMAIL,
+      url=URL_REPO,
+      download_url=URL_REPO,
 
-    # Minimum python version
-    python_requires=REQUIRES_PYTHON,
+      # Minimum python version
+      python_requires=REQUIRES_PYTHON,
 
-    # Packages to be added to setup
-    packages=find_packages(exclude=('tests', 'docs')),
-    # If your package is a single module, use this instead of 'packages':
-    # py_modules=['mypackage'],
+      # Packages to be added to setup
+      packages=find_packages(exclude=('tests', 'docs')),
+      # If your package is a single module, use this instead of 'packages':
+      # py_modules=['mypackage'],
 
-	# entry_points={
-    #     'console_scripts': ['mycli=mymodule:cli'],
-    # },
+      # entry_points={
+      #     'console_scripts': ['mycli=mymodule:cli'],
+      # },
 
-    # Installation - Required Modules & Extra Modules
-    install_requires=PkgREQUIRED,
-    extra_requires=PkgEXTRAS,
+      # Installation - Required Modules & Extra Modules
+      install_requires=PkgREQUIRED,
+      extra_requires=PkgEXTRAS,
 
-    # Classification (Trove - List: https://pypi.org/pypi?%3Aaction=list_classifiers)
-    classifiers=[
-        'Development Status :: 1 - Planning',
-        'Environment :: Console',
-        'Framework :: Flask',
-        'Framework :: Pytest',
-        'Framework :: Scrapy',
-        'Intended Audience :: Developers',
-        'Intended Audience :: End Users/Desktop',
-        'Intended Audience :: Information Technology',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
-        'Natural Language :: English',
-        'Operating System :: Microsoft :: MS-DOS',
-        'Operating System :: Microsoft :: Windows',
-	    'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.7',
-	    'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy'
-        'Topic :: Utilities',
-    ],
+      # Classification (Trove - List: https://pypi.org/pypi?%3Aaction=list_classifiers)
+      classifiers=[
+          'Development Status :: 1 - Planning',
+          'Environment :: Console',
+          'Framework :: Flask',
+          'Framework :: Pytest',
+          'Framework :: Scrapy',
+          'Intended Audience :: Developers',
+          'Intended Audience :: End Users/Desktop',
+          'Intended Audience :: Information Technology',
+          'Intended Audience :: Developers',
+          'License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)',
+          'Natural Language :: English',
+          'Operating System :: Microsoft :: MS-DOS',
+          'Operating System :: Microsoft :: Windows',
+          'Programming Language :: Python',
+          'Programming Language :: Python :: 3',
+          'Programming Language :: Python :: 3.7',
+          'Programming Language :: Python :: Implementation :: CPython',
+          'Programming Language :: Python :: Implementation :: PyPy'
+          'Topic :: Utilities',
+      ],
 
-    # $ setup.py publish support. If call `python setup.py publish` it'll execute build all with upload ot PyPi function via twine
-    cmdclass={
-        'publish': PublishCommand,
-    }
-    )
+      # $ setup.py publish support. If call `python setup.py publish` it'll execute build all with upload ot PyPi function via twine
+      cmdclass={
+          'publish': PublishCommand,
+      }
+      )
