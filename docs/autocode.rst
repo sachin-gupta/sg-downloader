@@ -7,28 +7,28 @@ auto-generated source code here.
 Security Sub-Package:
 ====================================
 
-.. automodule:: source.security.login
+.. automodule:: src.security.login
     :members:
 
-.. automodule:: source.security.helpers
+.. automodule:: src.security.helpers
     :members:
 
 Support Sub-Package:
 ====================================
 
-.. automodule:: source.support.utilities
+.. automodule:: src.support.utilities
     :members:
 
-.. automodule:: source.support.helpers
+.. automodule:: src.support.helpers
     :members:
 
 DatabaseManager Module:
 ====================================
 
-.. automodule:: source.DatabaseManager
+.. automodule:: src.DatabaseManager
     :members:
 
 Runner Module:
 ====================================
-.. automodule:: source.runner
+.. automodule:: src.runner
     :members:

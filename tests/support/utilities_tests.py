@@ -3,7 +3,7 @@
 
 import unittest
 
-from source.support import utilities
+from src.support import utilities
 
 class AdvancedTestSuite(unittest.TestCase):
     """Basic test cases for utils."""
