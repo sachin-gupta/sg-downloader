@@ -3,7 +3,8 @@
 
 import unittest
 
-from src.support import utilities
+#from src.support import utilities
+from .context import utilities as utilities
 
 
 class AdvancedTestSuite(unittest.TestCase):

@@ -4,6 +4,9 @@
 import unittest
 
 
+from .context import login as login
+
+
 class BasicTestSuite(unittest.TestCase):
     """Basic test cases for helpers."""
 

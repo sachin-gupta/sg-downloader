@@ -3,6 +3,8 @@
 
 import unittest
 
+from .context import helpers as helpers
+
 
 class BasicTestSuite(unittest.TestCase):
     """Basic test cases for helpers."""

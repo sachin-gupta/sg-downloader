@@ -3,7 +3,8 @@
 
 import unittest
 
-from src.support import helpers
+#from src.support import helpers
+from .context import helpers as helpers
 
 
 class BasicTestSuite(unittest.TestCase):
@@ -15,10 +16,10 @@ class BasicTestSuite(unittest.TestCase):
 
         if res == 3:
             print('~~~ Right Subtraction [10-7]: ' + str(res))
-            assert True
+            assert False
         else:
             print('~~~ Wrong Subtraction [10-7]: ' + str(res))
-            assert False
+            assert True
 
 
 if __name__ == '__main__':
