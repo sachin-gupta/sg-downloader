@@ -1,13 +1,8 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.6"
+  # to test project against python 3.7
   - "3.7"
-  # to test project against pypy
+  # to test project against pypy also
   - "pypy"
 # command to install dependencies
 install:
@@ -24,4 +19,6 @@ script:
   - make html
   - cd ..
   # Build distributions
+  - rm -rf dist/
+  - rm -rf sg_downloader.egg-info/
   - python setup.py sdist bdist bdist_wheel --universal
