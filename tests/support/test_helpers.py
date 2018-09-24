@@ -16,7 +16,7 @@ class BasicTestSuite(unittest.TestCase):
 
         if res == 3:
             print('~~~ Right Subtraction [10-7]: ' + str(res))
-            assert False
+            assert True
         else:
             print('~~~ Wrong Subtraction [10-7]: ' + str(res))
             assert True
