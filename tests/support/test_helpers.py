@@ -9,7 +9,7 @@ from src.support import helpers
 class BasicTestSuite(unittest.TestCase):
     """Basic test cases for helpers."""
 
-    def test_helpers_sub_method(self):
+    def test_support_helpers(self):
 
         res = helpers.sub(10, 7)
 
