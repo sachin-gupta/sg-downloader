@@ -1,4 +1,6 @@
+include README.md
 include LICENSE
 include CHANGES.txt
 include requirements.txt
 include main.py
+recursive-include docs/_build *
