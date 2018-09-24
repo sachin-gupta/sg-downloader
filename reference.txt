@@ -8,3 +8,7 @@ to be used in the file. Details out all technical aspects of writing Setup.py
 - [Setup Guide - Kennethreitz](https://github.com/kennethreitz/setup.py): A cool guide with powerful setup.py file
   - For example, this setup.py provides a $ python setup.py upload command, which creates a universal wheel (and sdist) and uploads your
   package to PyPi using Twine, without the need for an annoying setup.cfg file. It also creates/uploads a new git tag, automatically.
+
+TODO:
+
+- Use [Cookiecutter](https://github.com/audreyr/cookiecutter) to generate python projects from cookiecutters (project templates).
