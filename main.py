@@ -11,6 +11,6 @@ It's inside runner.main()
 
 - Loading runner.py module from source sub-package with current file
 '''
-from source import runner
+from src import runner
 
 runner.main()
