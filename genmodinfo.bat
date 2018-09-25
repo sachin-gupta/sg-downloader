@@ -1,4 +1,4 @@
-@ECHO Generate list of installed modules & env vars
+@ECHO Generate list of installed modules and env vars
 call activate RStudioDevEnv
 pip freeze > docs/pip_modules.txt
 conda env export -n RStudioDevEnv > docs/conda_modules.txt

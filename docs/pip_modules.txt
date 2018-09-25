@@ -186,7 +186,6 @@ webencodings==0.5.1
 win-inet-pton==1.0.1
 wincertstore==0.2
 wrapt==1.10.11
-wxPython==4.0.3
 xlrd==1.1.0
 youtube-dl==2018.9.10
 zict==0.1.3

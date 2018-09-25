@@ -1,3 +1,6 @@
+#Trusty had many things installed (https://docs.travis-ci.com/user/reference/trusty/)
+dist: trusty
+os: linux
 sudo: required
 services:
   - docker
@@ -6,8 +9,7 @@ python:
   # to test project against python 3.6
   - "3.6"
   # to test project against pypy also
-  ## Commented As Only Want Commit from Python3.6 Machine
-  ##- "pypy"
+  #- "pypy"
 # command to install dependencies
 branches:
   only:
@@ -72,16 +74,16 @@ before_deploy:
 # Deployment of desired branches and tags only
 deploy:
   provider: releases
-  
+
   api_key: "${GITHUB_PAT}"
-  
+
   # Items to artifact in glob pattern
   file_glob: true
   file: dist/**/*
-  
+
   # Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
   skip_cleanup: true
-  
+
   # Make sure to set overwrite: true as writing to same tag again and again
   overwrite: true
   # Deplyoment conditions for TravisCI (https://docs.travis-ci.com/user/deployment/#Conditional-Releases-with-on%3A)

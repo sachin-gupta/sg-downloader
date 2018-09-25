@@ -11,43 +11,45 @@
 requests>=2.19.1
 
 # Web Scrapping Library
-#scrapy>=1.5.1
+scrapy>=1.5.1
 
-# A gui toolkit for python like tkinter
-#wxpython>=4.0.3
+# A gui toolkit for python are tkinter, wxpython, kivy
+# wxpython>=4.0.3 (had installation issues on travisci and kivy seems better)
+# kivy>=1.10.1 (had installation issues on travisci stuck at cython required.
+#               have conflict issues on anaconda)
 
 # A friendly fork of PIL (Python Imaging Library)
-#pillow>=5.2.0
+pillow>=5.2.0
 
 # The Python SQL Toolkit and Object Relational Mapper
-#sqlalchemy>=1.2.11
+sqlalchemy>=1.2.11
 
 # Powerful HTML Parsing Library, Best One
-#beautifulsoup4>=4.6.3
+beautifulsoup4>=4.6.3
 
 # The most important tool for any network application developer
-#twisted>=18.7.0
+twisted>=18.7.0
 
 # NumPy is the fundamental package for scientific computing with Python
-#numpy>=1.15.1
+numpy>=1.15.1
 
 # SciPy is a library of algorithms and mathematical tools for python
-#scipy>=1.1.0
+scipy>=1.1.0
 
 # matplotlib is comprehensive 2D plotting library in python
-#matplotlib>=2.2.2
+matplotlib>=2.2.2
 
 # Some other plotting libraries (https://www.fusioncharts.com/blog/best-python-data-visualization-libraries/)
-#ggplot>=0.9.4
-#seaborn>=0.9.0
-#bokeh>=0.13.0
-#plotly>=3.1.1
+# ggplot>=0.9.4 (have conflict issues on anaconda)
+seaborn>=0.9.0
+bokeh>=0.13.0
+plotly>=3.1.1
 
 # SymPy is a Python library for symbolic mathematics.
-#sympy>=1.1.1
+sympy>=1.1.1
 
 # Pandas is high-performance data structures and data analysis tools
-#pandas>=0.23.4
+pandas>=0.23.4
 
 # Sphinx is a document generation tool in python
 sphinx>=1.7.9
