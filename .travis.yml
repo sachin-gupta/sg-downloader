@@ -9,6 +9,16 @@ python:
   ## Commented As Only Want Commit from Python3.6 Machine
   ##- "pypy"
 # command to install dependencies
+branches:
+  only:
+    - /^master.*$/
+    - /^release.*$/
+    - /^hotfix.*$/
+    - /^quality.*$/
+    - /^develop.*$/
+    - /^feature.*$/
+    - /^[vrbfhdq]?\d+\.\d+\.\d+$/
+
 install:
   - pip install -r requirements.txt
   - pip install -r requirements-dev.txt
