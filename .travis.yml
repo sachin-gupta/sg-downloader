@@ -25,17 +25,21 @@ install:
 # command to run tests
 script:
   # Echo TravisCI built in enviornment variables
-  - echo $TRAVIS_BUILD_NUMBER
-  - echo ${TRAVIS_BUILD_NUMBER}
-  - echo "$TRAVIS_BUILD_NUMBER"
-  - echo "${TRAVIS_BUILD_NUMBER}"
-  - echo "BuildID#" ${TRAVIS_BUILD_ID}
-  - echo "BuildID# ${TRAVIS_BUILD_ID}"
-  - echo 'BuildID# ${TRAVIS_BUILD_ID}'
-  - echo $GITHUB_PAT
-  - export TEST=Hello
-  - echo $TEST
-  - echo $(git log --format=%h -1)
+  - echo "^^^ TravisCI Diagnostics Variables ^^^"
+  - echo "Build No & ID = ${TRAVIS_BUILD_NUMBER} and ${TRAVIS_BUILD_ID}"
+  - echo "Job No & ID = ${TRAVIS_JOB_NUMBER} & ${TRAVIS_JOB_ID}"
+  - echo "Commit ID = ${TRAVIS_COMMIT}"
+  - echo "Commit Message = ${TRAVIS_COMMIT_MESSAGE}"
+  - echo "Repo Slug = ${TRAVIS_REPO_SLUG}"
+  - echo "Build Directory = ${TRAVIS_BUILD_DIR}"
+  - echo "OS Name = ${TRAVIS_OS_NAME}"
+  - echo "TRAVIS_BRANCH- ${TRAVIS_BRANCH}"
+  - echo "TRAVIS_BRANCH- ${TRAVIS_BRANCH}"
+  - echo "TRAVIS_BRANCH- ${TRAVIS_BRANCH}"
+
+  - echo "^^^ Other Diagnostics Variable ^^^"
+  - echo "Github PAT = ${GITHUB_PAT}"
+  - echo "Git Reference = $(git log --format=%h -1)"
   # Execute tests
   - pytest
   # Make docs using Sphinx
@@ -48,3 +52,17 @@ script:
   - rm -rf dist/
   - rm -rf sg_downloader.egg-info/
   - python setup.py sdist bdist bdist_wheel --universal
+deploy:
+  provider: releases
+  # Using Travis Enviornment Variable for Same (Double Quotes in Variable On Travis DashBoard)
+  # TODO: Ensure to make API key as secured variable
+  api_key: \"${GITHUB_PAT}\"
+  file_glob: true
+  file: dist/**/*
+  # Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
+  skip_cleanup: true
+  # Make sure to set overwrite: true as writing to same tag again and again
+  overwrite: true
+  # Commented as I am tagging manually
+  #on:
+  #  tags: true
