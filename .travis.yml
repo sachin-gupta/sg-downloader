@@ -81,3 +81,9 @@ deploy:
     condition: $TRAVIS_BRANCH =~ ^master|release|hotfix|develop$
   # Commented as I am tagging manually becasue I don't want only tags to get deployed
   #  tags: true
+
+# Arrest email notifications on build success
+notifications:
+  email:
+    on_success: never
+    on_failure: always
