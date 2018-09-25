@@ -53,9 +53,10 @@ script:
   - rm -rf sg_downloader.egg-info/
   - python setup.py sdist bdist bdist_wheel --universal
 
-  # As per [this](https://docs.travis-ci.com/user/deployment/releases/) either set your build to deploy only when
-  # the build already has a tag using 'on.tags: true', or manually tag the commit with git tag in before_deploy.
-  # Hence i'll tag the commit manually here for TravisCI
+# As per [this](https://docs.travis-ci.com/user/deployment/releases/) either set your build to deploy only when
+# the build already has a tag using 'on.tags: true', or manually tag the commit with git tag in before_deploy.
+# Hence i'll tag the commit manually here for TravisCI. This needs to be done in "before_deploy" section
+before_deploy:
   # 1. Setup GIT User Name & EMail for TravisCI
   - git config --global credential.helper store
   - git config --local user.name "sachin-gupta"
@@ -66,6 +67,8 @@ script:
   #- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
   - echo git tag \"$(git log --format=%h -1)\"
   - git tag \"$(git log --format=%h -1)\"
+
+# Deployment of desired branches and tags only
 deploy:
   provider: releases
   api_key: \"${GITHUB_PAT}\"
