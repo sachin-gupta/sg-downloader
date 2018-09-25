@@ -1,5 +1,11 @@
 # sg-downloader
 
+## Build Status:
+
+[![Build Status](https://travis-ci.org/sachin-gupta/sg-downloader.svg?branch=master)](https://travis-ci.org/sachin-gupta/sg-downloader)
+
+## About Project:
+
 A universal URL, Video, &amp; Course down loader where have integrated: scrapy, youtube-sl, edx-dl, &amp; coursera-dl in Python. Core idea about the project is as follows
 
 1. If a `Course URL` is provided like one from edX or Coursera, same shall be downloaded to specified location with optional authentication and offline site.

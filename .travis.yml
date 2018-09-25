@@ -6,7 +6,8 @@ python:
   # to test project against python 3.6
   - "3.6"
   # to test project against pypy also
-  - "pypy"
+  ## Commented As Only Want Commit from Python3.6 Machine
+  ##- "pypy"
 # command to install dependencies
 install:
   - pip install -r requirements.txt
@@ -15,13 +16,13 @@ install:
 script:
   # Execute tests
   - pytest
-  # Make docs
+  # Make docs using Sphinx
   - rm -rf .\docs\_build
   - cd docs
   - make clean
   - make html
   - cd ..
-  # Build distributions
+  # Build all distros - src, binary and windows wheel
   - rm -rf dist/
   - rm -rf sg_downloader.egg-info/
   - python setup.py sdist bdist bdist_wheel --universal
