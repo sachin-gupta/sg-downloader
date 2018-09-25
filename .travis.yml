@@ -66,7 +66,7 @@ before_deploy:
   # Note: Build will fail if tag exsist thus using repo reference to tag
   #- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
   - echo git tag \"$(git log --format=%h -1)\"
-  - git tag \"$(git log --format=%h -1)\"
+  - git tag "$(git log --format=%h -1)"
 
 # Deployment of desired branches and tags only
 deploy:
