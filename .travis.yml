@@ -65,6 +65,10 @@ before_deploy:
   # 2. Create Tag (Locally) To Push
   # Note: Build will fail if tag exsist thus using repo reference to tag
   #- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  # -- Delete Tag Locally (If Exsists)
+  - echo git tag -d \"$(git log --format=%h -1)\"
+  - git tag -d "$(git log --format=%h -1)"
+  # -- Regenerate Same Tag Locally
   - echo git tag \"$(git log --format=%h -1)\"
   - git tag "$(git log --format=%h -1)"
 
