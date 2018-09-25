@@ -87,7 +87,7 @@ deploy:
   # Deplyoment conditions for TravisCI (https://docs.travis-ci.com/user/deployment/#Conditional-Releases-with-on%3A)
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^master|release|hotfix|develop$ || -n $TRAVIS_TAG
+    condition: $TRAVIS_BRANCH =~ ^master|release|hotfix$ || -n $TRAVIS_TAG
   # Commented as I am tagging manually becasue I don't want only tags to get deployed
   #  tags: true
 
