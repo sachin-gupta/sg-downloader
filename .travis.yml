@@ -63,28 +63,25 @@ before_deploy:
   - git config --local user.email "sachin.aut@gmail.com"
 
   # 2. Create Tag (Locally) To Push
-  # Note: Build will fail if tag exsist thus using repo reference to tag
-  #- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-  # -- Delete Tag Locally (If Exsists)
-  - echo git tag -d \"$(git log --format=%h -1)\"
-  # --- Disable Exit on Non 0 Exit Code (When Tag is Not Found)
-  #     (script will continure on error between set sections)
-  - set +e
-  - git tag -d "$(git log --format=%h -1)"
-  # -- Regenerate Same Tag Locally
-  - echo git tag \"$(git log --format=%h -1)\"
-  - git tag "$(git log --format=%h -1)"
-  # --- Reenable Exit on Non 0 Exit Code (When Tag is Not Found)
-  - set -e
+  # (It's written in script as I don't want travis to terminate on tag delete step - This requires external script with set +e option)
+  - echo "Calling ./scripts/git-taglocally.sh"
+  - chmod ugo+x scripts/git-taglocally.sh
+  - ./scripts/git-taglocally.sh
+  - echo "Back from Script to .travis.yml"
 
 # Deployment of desired branches and tags only
 deploy:
   provider: releases
+  
   api_key: "${GITHUB_PAT}"
+  
+  # Items to artifact in glob pattern
   file_glob: true
   file: dist/**/*
+  
   # Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
   skip_cleanup: true
+  
   # Make sure to set overwrite: true as writing to same tag again and again
   overwrite: true
   # Deplyoment conditions for TravisCI (https://docs.travis-ci.com/user/deployment/#Conditional-Releases-with-on%3A)
