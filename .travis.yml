@@ -37,22 +37,37 @@ script:
   - echo "^^^ Other Diagnostics Variable ^^^"
   - echo "Github PAT = ${GITHUB_PAT}"
   - echo "Git Reference = $(git log --format=%h -1)"
+
   # Execute tests
   - pytest
+
   # Make docs using Sphinx
   - rm -rf .\docs\_build
   - cd docs
   - make clean
   - make html
   - cd ..
+
   # Build all distros - src, binary and windows wheel
   - rm -rf dist/
   - rm -rf sg_downloader.egg-info/
   - python setup.py sdist bdist bdist_wheel --universal
+
+  # As per [this](https://docs.travis-ci.com/user/deployment/releases/) either set your build to deploy only when
+  # the build already has a tag using 'on.tags: true', or manually tag the commit with git tag in before_deploy.
+  # Hence i'll tag the commit manually here for TravisCI
+  # 1. Setup GIT User Name & EMail for TravisCI
+  - git config --global credential.helper store
+  - git config --local user.name "sachin-gupta"
+  - git config --local user.email "sachin.aut@gmail.com"
+
+  # 2. Create Tag (Locally) To Push
+  # Note: Build will fail if tag exsist thus using repo reference to tag
+  #- git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  - echo git tag \"$(git log --format=%h -1)\"
+  - git tag \"$(git log --format=%h -1)\"
 deploy:
   provider: releases
-  # Using Travis Enviornment Variable for Same (Double Quotes in Variable On Travis DashBoard)
-  # TODO: Ensure to make API key as secured variable
   api_key: \"${GITHUB_PAT}\"
   file_glob: true
   file: dist/**/*
@@ -60,6 +75,9 @@ deploy:
   skip_cleanup: true
   # Make sure to set overwrite: true as writing to same tag again and again
   overwrite: true
-  # Commented as I am tagging manually
-  #on:
+  # Deplyoment conditions for TravisCI (https://docs.travis-ci.com/user/deployment/#Conditional-Releases-with-on%3A)
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^master|release|hotfix|develop$
+  # Commented as I am tagging manually becasue I don't want only tags to get deployed
   #  tags: true
