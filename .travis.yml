@@ -18,7 +18,7 @@ branches:
     - /^develop.*$/
     - /^feature.*$/
     - /^[vrbfhdq]?\d+\.\d+\.\d+$/
-
+    - tags
 install:
   - pip install -r requirements.txt
   - pip install -r requirements-dev.txt
