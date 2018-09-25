@@ -24,6 +24,18 @@ install:
   - pip install -r requirements-dev.txt
 # command to run tests
 script:
+  # Echo TravisCI built in enviornment variables
+  - echo $TRAVIS_BUILD_NUMBER
+  - echo ${TRAVIS_BUILD_NUMBER}
+  - echo "$TRAVIS_BUILD_NUMBER"
+  - echo "${TRAVIS_BUILD_NUMBER}"
+  - echo "BuildID#" ${TRAVIS_BUILD_ID}
+  - echo "BuildID# ${TRAVIS_BUILD_ID}"
+  - echo 'BuildID# ${TRAVIS_BUILD_ID}'
+  - echo $GITHUB_PAT
+  - export TEST=Hello
+  - echo $TEST
+  - echo $(git log --format=%h -1)
   # Execute tests
   - pytest
   # Make docs using Sphinx
