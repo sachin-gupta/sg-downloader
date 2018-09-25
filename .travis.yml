@@ -71,7 +71,7 @@ before_deploy:
 # Deployment of desired branches and tags only
 deploy:
   provider: releases
-  api_key: "638adc8ff38818be04bcb1850770c49b8624f2d7"
+  api_key: "${GITHUB_PAT}"
   file_glob: true
   file: dist/**/*
   # Make sure you have skip_cleanup set to true, otherwise Travis CI will delete all the files created during the build, which will probably delete what you are trying to upload.
