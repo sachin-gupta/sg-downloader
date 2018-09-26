@@ -1,0 +1,56 @@
+#!/bin/sh
+#This is a pre-commit hook and will run on windows if file inside .git/hooks renamed as pre-commit
+
+## CHECK-1: Repository user email should be correct
+useremail=$(git config user.email)
+
+if [ "$useremail" != "sachin.aut@gmail.com" ]
+then
+	cat <<\EOF
+SGError (Pre-Commit Hook): "user.email" not set to "sachin.aut@gmail.com".
+Use following commands to help out:
+  - git config --global credential.helper store
+  - git config --local user.name "sachin-gupta"
+  - git config --local user.email "sachin.aut@gmail.com"
+EOF
+	exit 1
+fi
+
+## CHECK-2: Repository user id or name should be correct
+username=$(git config user.name)
+
+if [ "$username" != "Sachin Gupta" ]
+then
+	cat <<\EOF
+SGError (Pre-Commit Hook): "user.name" not set to "Sachin Gupta".
+Use following commands to help out:
+  - git config --global credential.helper store
+  - git config --local user.name "sachin-gupta"
+  - git config --local user.email "sachin.aut@gmail.com"
+
+EOF
+	exit 1
+fi
+
+# CHECK-3: Fail if any matching words are present in the diff
+matches=$(git diff-index --patch HEAD | grep '^+' | grep -Pi 'Word1|Word2|Word3')
+
+if [ ! -z "$matches" ]
+then
+	cat <<\EOT
+Error: Words from the blacklist were present in the diff:
+EOT
+	echo $matches
+	exit 1
+fi
+
+# REPLACE-1: Replace version number in files as per __version__.py
+function getCurrBranch()
+{
+    local  myResult=$(git branch | grep \\* | cut -d ' ' -f2)
+    echo "$myResult"
+}
+
+currBranch=$(getCurrBranch)
+echo $currBranch
+sed -i -r "s/svg\?branch=(.*)\)\]/svg?branch=$currBranch)]/" README.md
