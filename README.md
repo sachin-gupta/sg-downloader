@@ -2,7 +2,7 @@
 
 ## Build Status:
 
-[![Build Status](https://travis-ci.org/sachin-gupta/sg-downloader.svg?branch=master)](https://travis-ci.org/sachin-gupta/sg-downloader)
+[![Build Status](https://travis-ci.org/sachin-gupta/sg-downloader.svg?branch=develop)](https://travis-ci.org/sachin-gupta/sg-downloader)
 
 ## About Project:
 

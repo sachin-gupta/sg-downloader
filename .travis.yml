@@ -21,9 +21,17 @@ branches:
     - /^feature.*$/
     - /^[vrbfhdq]?\d+\.\d+\.\d+$/
     - tags
+    - /^docker.*$/
 install:
-  - pip install -r requirements.txt
-  - pip install -r requirements-dev.txt
+  # TODO: Runtime dependencies not required to be installed on TravisCI but have to be inside docker.
+  # ! Doing so to check which one fails on Travis CI shell
+  # ~ Now next line is commented to speed up the installation process on TravisCI.
+  # ! Remove comment of next line when you want to check which deps install on TravisCI build agent
+  ##- pip install --no-cache-dir  --upgrade --ignore-installed -r requirements.txt
+
+  # Development dependencies (setuptools, pytest and twine required thus using this)
+  # !
+  - pip install --no-cache-dir --upgrade --ignore-installed -r requirements-dev.txt
 # command to run tests
 script:
   # Echo TravisCI built in enviornment variables
@@ -40,10 +48,10 @@ script:
   - echo "Github PAT = ${GITHUB_PAT}"
   - echo "Git Reference = $(git log --format=%h -1)"
 
-  # Execute tests
+  # Execute our test cases using pytest
   - pytest
 
-  # Make docs using Sphinx
+  # Make out documentation using Sphinx
   - rm -rf .\docs\_build
   - cd docs
   - make clean
@@ -66,10 +74,15 @@ before_deploy:
 
   # 2. Create Tag (Locally) To Push
   # (It's written in script as I don't want travis to terminate on tag delete step - This requires external script with set +e option)
-  - echo "Calling ./scripts/git-taglocally.sh"
-  - chmod ugo+x scripts/git-taglocally.sh
-  - ./scripts/git-taglocally.sh
-  - echo "Back from Script to .travis.yml"
+  - echo "Calling ./scripts/git-safedellocaltag.sh to safely delete existing tag"
+  - chmod ugo+x scripts/git-safedellocaltag.sh
+  - ./scripts/git-safedellocaltag.sh
+
+  # 3. Try to create tag locally with commit id
+  - echo "Back from Script to .travis.yml, Now creating desired tag"
+  - echo git tag \"$(git log --format=%h -1)\"
+  #git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  - git tag "$(git log --format=%h -1)"
 
 # Deployment of desired branches and tags only
 deploy:
