@@ -109,6 +109,7 @@ ADD LICENSE /app
 ADD README.md /app
 ADD requirements.txt /app
 ADD requirements-dev.txt /app
+ADD environment.yml /app
 
 # Copy docs not to WORKDIR (different location)
 ADD docs/_build/html /app/www/docs
@@ -129,6 +130,15 @@ RUN ls -lh /app/www/docs
 # Watch the contents of /app
 RUN ls -lah /app
 
+# Update enviorment as per development of app (condaenv)
+RUN conda env update -n base -f environment.yml 
+
+# Print information of conda enviornment
+RUN conda info
+
+# Print content of conda enviornment
+RUN conda env list
+
 # Print content of existing pip modules
 RUN python3 --version
 
@@ -138,9 +148,6 @@ RUN pip --version
 
 # Print installed modules on system
 RUN pip freeze
-
-# Print content of conda enviornment
-RUN conda env list
 
 # Echo python version and use pip to install dependencies into image
 RUN pip install  --no-cache-dir  --upgrade --ignore-installed  -r requirements.txt > /dev/null
