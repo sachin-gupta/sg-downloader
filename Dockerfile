@@ -131,7 +131,7 @@ RUN ls -lh /app/www/docs
 RUN ls -lah /app
 
 # Update enviorment as per development of app (condaenv)
-RUN conda env update -n base -f environment.yml 
+# RUN conda env update -n base -f environment.yml 
 
 # Print information of conda enviornment
 RUN conda info

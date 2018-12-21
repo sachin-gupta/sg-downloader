@@ -1,13 +1,13 @@
 #Trusty had many things installed (https://docs.travis-ci.com/user/reference/trusty/)
-dist: trusty
+dist: xenial
 os: linux
 sudo: required
 services:
   - docker
 language: python
 python:
-  # to test project against python 3.6
-  - "3.6"
+  # to test project against python 3.7
+  - "3.7"
   # to test project against pypy also
   #- "pypy"
 # command to install dependencies

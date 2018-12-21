@@ -38,7 +38,7 @@ twisted>=18.9.0
 numpy>=1.15.4
 
 # PyTables is for handling large amount of data with numpy (big data)
-pytables>=3.4.4
+#pytables>=3.4.4 (does not install on miniconda)
 
 # StatsModels is many different statistical models & statistical data exploration
 statsmodels>=0.9.0
