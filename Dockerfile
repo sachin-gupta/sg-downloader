@@ -13,8 +13,8 @@
 # [MiniConda3](https://hub.docker.com/r/continuumio/miniconda3/) is Docker container with a bootstrapped installation
 # of Miniconda (based on Python 3.5) into /opt/conda and ensures that the default user has the conda command in their path
 
-# Set the base image continuumio/miniconda3:4.5.4
-FROM continuumio/miniconda3:4.5.4
+# Set the base image continuumio/miniconda3:4.5.11
+FROM continuumio/miniconda3:4.5.11
 
 # Author or maintainer of this image file
 MAINTAINER Sachin Gupta <sachin.aut@gmail.com>
