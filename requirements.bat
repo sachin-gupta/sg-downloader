@@ -38,6 +38,7 @@ FOR /f "tokens=1,2 delims=\>\=" %%A in (./logs/requirements.log) do (
   SET MODULE=%%A
   SET VERSION=%%B
   @ECHO    + MODULE: %%A, VERSION: %%B
+  @ECHO PRESS KEY TO INSTALL MODULE
   conda install --yes %%A==%%B || pip install %%A==%%B
   @ECHO    - DONE: %%A, VERSION: %%B
   REM pause
