@@ -34,7 +34,7 @@ conda env export -n RStudioDevEnv > ./logs/in_conda_modules_list.txt
 
 @ECHO - Installing modules in requirements.txt one at a time
 findstr /v /c:"#" requirements.txt > ./logs/requirements.log
-FOR /f "tokens=1,2 delims=\=\=" %%A in (./logs/requirements.log) do (
+FOR /f "tokens=1,2 delims=\>\=" %%A in (./logs/requirements.log) do (
   SET MODULE=%%A
   SET VERSION=%%B
   @ECHO    + MODULE: %%A, VERSION: %%B
