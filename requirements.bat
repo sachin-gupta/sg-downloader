@@ -6,12 +6,12 @@ REM
 REM   Direct Commands:
 REM     activate RStudioDevEnv
 REM     conda install --yes --file requirements.txt  OR pip install -r requirements.txt
-REM     deactivate 
+REM     deactivate
 @ECHO.
 @ECHO.
 
 @ECHO - Ensuring that ./logs/ directory exsists
-mkdir ./logs
+mkdir logs
 @ECHO.
 
 @ECHO - Activating conda enviornment on local machine
