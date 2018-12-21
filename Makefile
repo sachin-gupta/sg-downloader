@@ -13,5 +13,5 @@ test:
 
 pack:
     rmdir /S /Q dist
-	rmdirs /S /Q sg_downloader.egg-info
+    rmdirs /S /Q sg_downloader.egg-info
     python setup.py sdist

@@ -1,16 +1,16 @@
 # All development and testing tools are bought here from requirements.txt
 
 # Setup tools & wheel required to install this package
-setuptools>=40.4.3
-wheel>= 0.31.1
+setuptools>=40.6.3
+wheel>= 0.32.3
 
 # Nose, PyTest, UniTest is a testing framework in python
 nose>=1.3.7
-pytest>=3.8.1
+pytest>=4.0.2
 unittest2>=1.1.0
 
 # Twine is required to upload files to PyPI
-twine>=1.11.0
+twine>=1.12.1
 
 # Sphinx is a document generation tool in python
-sphinx>=1.8.1
+sphinx>=1.8.2

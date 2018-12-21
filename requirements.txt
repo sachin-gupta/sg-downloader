@@ -2,8 +2,8 @@
 # (Based: https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/)
 
 # Setup tools & wheel required to install this package
-setuptools>=40.2.0
-wheel>= 0.31.1
+setuptools>=40.6.3
+wheel>=0.32.3=py37_0
 
 # HTTP Request Response Library
 # requests-auth &
@@ -12,7 +12,7 @@ wheel>= 0.31.1
 # requests-cache: Caches responses with headers and cookies to sqlite database
 # requests_download: A convenient function to download to a file using requests.
 # requests-ftp: A simple FTP transport adapter
-requests>=2.19.1
+requests>=2.21.0
 
 # Web Scrapping Library
 scrapy>=1.5.1
@@ -26,16 +26,16 @@ scrapy>=1.5.1
 pillow>=5.3.0
 
 # The Python SQL Toolkit and Object Relational Mapper
-sqlalchemy>=1.2.8
+sqlalchemy>=1.2.15
 
 # Powerful HTML Parsing Library, Best One
 beautifulsoup4>=4.6.3
 
 # The most important tool for any network application developer
-twisted>=18.7.0
+twisted>=18.9.0
 
 # NumPy is the fundamental package for scientific computing with Python
-numpy>=1.15.2
+numpy>=1.15.4
 
 # PyTables is for handling large amount of data with numpy (big data)
 pytables>=3.4.4
@@ -51,10 +51,10 @@ matplotlib>=2.2.2
 mpld3>=0.3
 
 # Some other plotting libraries (https://www.fusioncharts.com/blog/best-python-data-visualization-libraries/)
-# ggplot>=0.9.4 (have conflict issues on anaconda)
+# ggplot>=0.11.5 (have conflict issues on anaconda)
 seaborn>=0.9.0
-bokeh>=0.13.0
-plotly>=3.1.1
+bokeh>=1.0.2
+plotly>=3.4.2
 
 # SymPy is a Python library for symbolic mathematics.
 sympy>=1.3
