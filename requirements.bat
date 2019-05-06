@@ -15,25 +15,32 @@ mkdir logs
 @ECHO.
 
 @ECHO - Activating conda enviornment on local machine
-call activate RStudioDevEnv
+call conda activate RStudioDevEnv
+@ECHO "RStudioDevEnv Activated !"
+@ECHO.
 
 @ECHO - Verifying that RStudioDevEnv is current enviornment
 @ECHO   (Also save this list to ./logs/conda_env_list.txt)
-conda env list
-conda env list > ./logs/conda_env_list.txt
+call conda env list
+call conda env list > ./logs/conda_env_list.txt
+@ECHO "List Of Env Created (conda_env_list.txt) !"
 pause
 @ECHO.
 
 @ECHO - Exporting list of pip modules to ./logs/in_pip_modules_list.txt
 pip freeze > ./logs/in_pip_modules_list.txt
+@ECHO "List Of PIP Modules Created (in_pip_modules_list.txt) !"
 @ECHO.
 
 @ECHO - Exporting conda enviornment modules to ./logs/in_conda_modules_list.txt
-conda env export -n RStudioDevEnv > ./logs/in_conda_modules_list.txt
+call conda env export -n RStudioDevEnv > ./logs/in_conda_modules_list.txt
+@ECHO "List Of CONDA Modules Created (in_conda_modules_list.txt) !"
 @ECHO.
 
 @ECHO - Installing modules in requirements.txt one at a time
+rm ./logs/requirements.log
 findstr /v /c:"#" requirements.txt > ./logs/requirements.log
+@ECHO "List Of Modules Required Created (requirements.log) !"
 FOR /f "tokens=1,2 delims=\>\=" %%A in (./logs/requirements.log) do (
   SET MODULE=%%A
   SET VERSION=%%B
@@ -41,20 +48,22 @@ FOR /f "tokens=1,2 delims=\>\=" %%A in (./logs/requirements.log) do (
   @ECHO        { conda install --yes %%A==%%B } OR
   @ECHO        { pip install %%A==%%B         }
   REM PAUSE
-  conda install --yes %%A==%%B || pip install %%A==%%B
+  call conda install --yes %%A==%%B || pip install %%A==%%B
   @ECHO    - DONE: %%A, VERSION: %%B
 )
 @ECHO.
 
 @ECHO - Exporting list of pip modules to ./logs/out_pip_modules_list.txt
 pip freeze > ./logs/out_pip_modules_list.txt
+@ECHO "List Of PIP Modules Created (out_pip_modules_list.txt) !"
 @ECHO.
 
 @ECHO - Exporting conda enviornment modules to ./logs/out_conda_modules_list.txt
-conda env export -n RStudioDevEnv > ./logs/out_conda_modules_list.txt
+call conda env export -n RStudioDevEnv > ./logs/out_conda_modules_list.txt
+@ECHO "List Of CONDA Modules Created (out_conda_modules_list.txt) !"
 @ECHO.
 
 @ECHO - Deactivating conda enviornment on local machine
-call deactivate
+call conda deactivate
 
 @ECHO ON
